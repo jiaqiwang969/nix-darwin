@@ -38,8 +38,8 @@ in {
 
   # home manager needs this
   home = {
-    username = "torgeir";
-    homeDirectory = "/Users/torgeir";
+    username = "jqwang";
+    homeDirectory = "/Users/jqwang";
     stateVersion = "23.11";
   };
 
@@ -62,7 +62,7 @@ in {
     ".config/dotfiles".onChange = ''
       echo "Fixing swiftbar path"
       /usr/bin/defaults write com.ameba.Swiftbar PluginDirectory \
-        $(/etc/profiles/per-user/torgeir/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
+        $(/etc/profiles/per-user/jqwang/bin/readlink ~/.config/dotfiles)/swiftbar/scripts
       echo swiftbar plugin directory is $(/usr/bin/defaults read com.ameba.Swiftbar PluginDirectory)
     '';
 
@@ -73,10 +73,10 @@ in {
 
     ".yabairc".source = dotfiles + "/yabairc";
     ".yabairc".onChange =
-      "/etc/profiles/per-user/torgeir/bin/yabai --restart-service";
+      "/etc/profiles/per-user/jqwang/bin/yabai --restart-service";
 
     ".skhdrc".source = dotfiles + "/skhdrc";
     ".skhdrc".onChange =
-      "/etc/profiles/per-user/torgeir/bin/skhd --restart-service";
+      "/etc/profiles/per-user/jqwang/bin/skhd --restart-service";
   };
 }

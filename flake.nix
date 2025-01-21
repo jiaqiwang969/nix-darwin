@@ -26,13 +26,13 @@
     nixpkgs-locked.url =
       "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
 
-    nix-home-manager.url = "github:torgeir/nix-home-manager";
-    dotfiles.url = "github:torgeir/dotfiles";
+    nix-home-manager.url = "github:jiaqiwang969/nix-home-manager";
+    dotfiles.url = "github:jiaqiwang969/dotfiles";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-home-manager
     , dotfiles, ... }: {
-      darwinConfigurations."bekk-mac-03257" = darwin.lib.darwinSystem {
+      darwinConfigurations."JQdeMacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin"; # apple silicon
         specialArgs = { inherit inputs; };
         modules = [
@@ -71,7 +71,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.torgeir = import ./home;
+            home-manager.users.jqwang = import ./home;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               dotfiles = dotfiles;
@@ -82,5 +82,4 @@
         ];
       };
     };
-  };
 }

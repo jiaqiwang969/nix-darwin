@@ -41,7 +41,7 @@
         actual="''${aliased%/}"
         # copy it into /Applications
         cp -fHRL "$actual" "/Applications/" || true
-        chown -R torgeir:admin "/Applications/$(basename "$actual")" || true
+        chown -R jqwang:admin "/Applications/$(basename "$actual")" || true
       done
     '';
   };
