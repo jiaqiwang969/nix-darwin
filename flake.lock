@@ -22,15 +22,15 @@
     },
     "dotfiles": {
       "locked": {
-        "lastModified": 1731850033,
-        "narHash": "sha256-XqpUSvhpl9TOKucfu3KOtAuPXNHlwFy8gbCHvAanAB0=",
-        "owner": "jqwang",
+        "lastModified": 1737432246,
+        "narHash": "sha256-kEvSwY2+yGboCMR3Ps0EdID92U/vtEhGdGK+f/NB2U8=",
+        "owner": "jiaqiwang969",
         "repo": "dotfiles",
-        "rev": "8c526e0e88518f7a561d65c78725bd7b2695a09c",
+        "rev": "4f36ff219337ac75a4673963230a4af2273a8674",
         "type": "github"
       },
       "original": {
-        "owner": "jqwang",
+        "owner": "jiaqiwang969",
         "repo": "dotfiles",
         "type": "github"
       }
@@ -78,15 +78,15 @@
     },
     "nix-home-manager": {
       "locked": {
-        "lastModified": 1731850610,
-        "narHash": "sha256-W7ePg3OClEtK8FDrYuvemSRpqN667vDYcmNr3K3ygQg=",
-        "owner": "jqwang",
+        "lastModified": 1737431647,
+        "narHash": "sha256-nsfaLcg8LUuh3Y5LMEia2EC8rLRU8ngO5BhbD2vf1+I=",
+        "owner": "jiaqiwang969",
         "repo": "nix-home-manager",
-        "rev": "7461f8749e72bf24ecdfdccd8e62ec0eb1e2490d",
+        "rev": "97b9789586716c29046268ad490279c3f619a792",
         "type": "github"
       },
       "original": {
-        "owner": "jqwang",
+        "owner": "jiaqiwang969",
         "repo": "nix-home-manager",
         "type": "github"
       }
@@ -124,11 +124,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1730508943,
-        "narHash": "sha256-JKNdarMDYFvG/rZUYiSZdMtJW6fUbi3Op8rW3wgOGpo=",
+        "lastModified": 1737420906,
+        "narHash": "sha256-Bl4b5i9Jw/0xxlEHF109Ow03fMWE3YC3OaA9GDuMAe0=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "b77ccb5ebd1bfd6e48ffe14f32f275ea30dd4fd6",
+        "rev": "8e9965c903e39aa478abe25e6f0a3a89370277a2",
         "type": "github"
       },
       "original": {

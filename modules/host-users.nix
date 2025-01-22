@@ -2,7 +2,7 @@
 
 let
   hostname = "JQdeMacBook-Pro";
-  username = "torgeir";
+  username = "jqwang";
 in {
   networking.hostName = hostname;
   networking.computerName = hostname;

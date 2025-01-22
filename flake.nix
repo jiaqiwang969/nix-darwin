@@ -1,6 +1,11 @@
 {
   description = "Nix for macOS configuration";
 
+  nixConfig = {
+    substituters = [ "https://cache.nixos.org/" ];
+    trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+  };
+
   # format https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
   inputs = {
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";

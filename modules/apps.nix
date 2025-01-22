@@ -1,7 +1,9 @@
 { inputs, pkgs, ... }: {
 
   environment.extraInit = ''
-    export PATH=$HOME/bin:$PATH
+    export PATH=$HOME/bin:/opt/homebrew/bin:/opt/homebrew/anaconda3/bin:$PATH
+    export USER_EMAIL="jiaqiwang969@gmail.com"                        
+    export USER_EMAIL_2="jiaqi_wang@sjtu.com"
   '';
 
   # install packages from nix's official package repository.
@@ -9,6 +11,7 @@
     git
     nil # nix language server
     nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
+    jdk17
   ];
 
   # To make this work, homebrew need to be installed manually, see
@@ -33,13 +36,13 @@
 
     # brew install --cask
     # these need to be updated manually
-    casks = [ "swiftbar" "spotify" "zoom" "intellij-idea" ];
+    casks = [ "swiftbar" "spotify" "zoom" "intellij-idea" "anaconda"];
 
     # mac app store
     # click
     masApps = {
-      amphetamine = 937984704;
-      kindle = 302584613;
+      #amphetamine = 937984704;
+      #kindle = 302584613;
       tailscale = 1475387142;
 
       # useful for debugging macos key codes

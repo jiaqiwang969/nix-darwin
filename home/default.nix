@@ -18,7 +18,7 @@ in {
   programs.t-firefox = {
     enable = true;
     package = pkgs.firefox-devedition-bin;
-    extraEngines = (import ./firefox-da.nix { });
+    extraEngines = (import ./firefox-da.nix { engine= "google"; });
   };
   programs.t-doomemacs.enable = true;
   programs.t-nvim.enable = true;
@@ -36,10 +36,15 @@ in {
     ghPackage = pkgs.unstable.gh;
   };
 
+  # 启用 1Password 核心功能
+ # programs._1password.enable = true;
+ # programs._1password-gui.enable = true;
+ # programs._1password-gui.polkitPolicyOwners = [ "jqwang" ]; # 替换为你的用户名
+
   # home manager needs this
   home = {
     username = "jqwang";
-    homeDirectory = "/Users/jqwang";
+    homeDirectory = lib.mkForce "/Users/jqwang";
     stateVersion = "23.11";
   };
 

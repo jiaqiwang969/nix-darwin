@@ -2,7 +2,7 @@
 
   # https://daiderd.com/nix-darwin/manual/index.html#sec-options
 
-  time.timeZone = "Europe/Oslo";
+  time.timeZone = "Asia/Shanghai";
 
   system = {
 
@@ -42,8 +42,8 @@
         ApplePressAndHoldEnabled = false;
 
         # fast key repeat rate when hold
-        KeyRepeat = 2;
-        InitialKeyRepeat = 15;
+        KeyRepeat = 1;
+        InitialKeyRepeat = 7;
       };
 
       # killall Dock to make them have effect

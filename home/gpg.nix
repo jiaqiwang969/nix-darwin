@@ -1,14 +1,11 @@
 { config, lib, pkgs, ... }: {
-
   programs.gpg = {
     enable = true;
     package = pkgs.gnupg24;
   };
 
-  home.packages = with pkgs; [ pinentry_mac ];
+  home.packages = with pkgs; [ pinentry ];
 
-  # gnu --batch --import
-  #  https://github.com/NixOS/nixpkgs/issues/240819#issuecomment-1616760598
   home.file.".gnupg/gpg-agent.conf".text = ''
     # seconds after the last GnuPG activity
     default-cache-ttl 28800
@@ -21,8 +18,8 @@
     # allow presetting the passphrase from 1password
     allow-preset-passphrase
 
-    # mac
-    pinentry-program "${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac";
+    # Use the correct pinentry path
+    pinentry-program ${pkgs.pinentry}/bin/pinentry
 
     enable-ssh-support
 
