@@ -16,31 +16,49 @@
 
   # format https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
   inputs = {
+    # nixpkgs 23.11 darwin channel
+    # 2024-01-31
     nixpkgs-darwin.url = "github:nixos/nixpkgs/7144d6241f02d171d25fba3edeaf15e0f2592105";
     
+    # nix-darwin latest stable
+    # 2024-03-01
     darwin = {
       url = "github:lnl7/nix-darwin/683d0c4cd1102dcccfa3f835565378c7f3cbe05e";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     
+    # home-manager 23.11 release
+    # 2024-01-30
     home-manager = {
       url = "github:nix-community/home-manager/f2e3c19867262dbe84fdfab42467fc8dd83a2005";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    # firefox-darwin latest
+    # 2024-01-21
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin/8e9965c903e39aa478abe25e6f0a3a89370277a2";
 
+    # mkAlias stable
+    # 2023-03-12
     mkAlias = {
       url = "github:cdmistman/mkAlias/ab1afe594a3da8be30814b735cc5ad53d7c326f7";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
+    # nixpkgs unstable channel
+    # 2024-02-28
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/807e9154dcb16384b1b765ebe9cd2bba2ac287fd";
     
+    # specific nixpkgs version for compatibility
+    # 2024-02-10
     nixpkgs-locked.url = "github:NixOS/nixpkgs/1042fd8b148a9105f3c0aca3a6177fd1d9360ba5";
 
+    # personal nix-home-manager config
+    # 2024-01-23
     nix-home-manager.url = "github:jiaqiwang969/nix-home-manager/5ef4387df7bce91e0b10675afa7656b2575057a2";
     
+    # personal dotfiles
+    # 2024-01-30
     dotfiles.url = "github:jiaqiwang969/dotfiles/9ac998cd05098775117faba29969f4394b7d4db8";
   };
 

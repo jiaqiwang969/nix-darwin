@@ -4,6 +4,9 @@
     export PATH=$HOME/bin:/opt/homebrew/bin:/opt/homebrew/anaconda3/bin:$PATH
     export USER_EMAIL="jiaqiwang969@gmail.com"                        
     export USER_EMAIL_2="jiaqi_wang@sjtu.com"
+    export https_proxy=http://127.0.0.1:7897
+    export http_proxy=http://127.0.0.1:7897
+    export all_proxy=socks5://127.0.0.1:7897
   '';
 
   # install packages from nix's official package repository.
@@ -11,7 +14,6 @@
     git
     nil # nix language server
     nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
-    jdk17
   ];
 
   # To make this work, homebrew need to be installed manually, see
