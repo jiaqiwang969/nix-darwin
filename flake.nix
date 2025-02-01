@@ -55,11 +55,11 @@
 
     # personal nix-home-manager config
     # 2024-01-23
-    nix-home-manager.url = "github:jiaqiwang969/nix-home-manager/5ef4387df7bce91e0b10675afa7656b2575057a2";
+    nix-home-manager.url = "path:./nix-home-manager";
     
     # personal dotfiles
     # 2024-01-30
-    dotfiles.url = "github:jiaqiwang969/dotfiles/9ac998cd05098775117faba29969f4394b7d4db8";
+    dotfiles.url = "path:./dotfiles";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-home-manager

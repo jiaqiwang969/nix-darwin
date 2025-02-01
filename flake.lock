@@ -23,18 +23,14 @@
     },
     "dotfiles": {
       "locked": {
-        "lastModified": 1738225997,
-        "narHash": "sha256-8ljJeQNBrfhUZq6nbOKDD3d+bsQiy7LkQmNIokQuEsw=",
-        "owner": "jiaqiwang969",
-        "repo": "dotfiles",
-        "rev": "9ac998cd05098775117faba29969f4394b7d4db8",
-        "type": "github"
+        "lastModified": 1,
+        "narHash": "sha256-c37ewroZyq0/Ln932nnCTIr5Vdr5MnmzUt+laH3KvwU=",
+        "path": "./dotfiles",
+        "type": "path"
       },
       "original": {
-        "owner": "jiaqiwang969",
-        "repo": "dotfiles",
-        "rev": "9ac998cd05098775117faba29969f4394b7d4db8",
-        "type": "github"
+        "path": "./dotfiles",
+        "type": "path"
       }
     },
     "home-manager": {
@@ -81,18 +77,14 @@
     },
     "nix-home-manager": {
       "locked": {
-        "lastModified": 1737611516,
+        "lastModified": 1,
         "narHash": "sha256-aSRyR03QzpN1paW7pCz6kALxhaOmdueht6aqDGCKuEI=",
-        "owner": "jiaqiwang969",
-        "repo": "nix-home-manager",
-        "rev": "5ef4387df7bce91e0b10675afa7656b2575057a2",
-        "type": "github"
+        "path": "./nix-home-manager",
+        "type": "path"
       },
       "original": {
-        "owner": "jiaqiwang969",
-        "repo": "nix-home-manager",
-        "rev": "5ef4387df7bce91e0b10675afa7656b2575057a2",
-        "type": "github"
+        "path": "./nix-home-manager",
+        "type": "path"
       }
     },
     "nixpkgs": {

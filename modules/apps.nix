@@ -41,7 +41,7 @@
 
     # brew install --cask
     # these need to be updated manually
-    casks = [ "swiftbar" "spotify" "zoom" "intellij-idea" "anaconda"];
+    casks = ["swiftbar"  "spotify" "zoom" "intellij-idea" "anaconda"];
 
     # mac app store
     # click
