@@ -14,6 +14,9 @@
     git
     nil # nix language server
     nixfmt # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-fmt#examples
+    btop    # 系统监控
+    bottom  # 系统监控
+    nload   # 网络监控
   ];
 
   # To make this work, homebrew need to be installed manually, see
