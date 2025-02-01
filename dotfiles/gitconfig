@@ -1,0 +1,82 @@
+[init]
+  defaultBranch = main
+
+[commit]
+  gpgsign = true
+  cleanup = scissors
+
+[user]
+  name = jiaqiwang969
+  email = jiaqiwang969@gmail.com
+  signingkey = B3CF01383ADB3051
+
+[github]
+  user = jiaqiwang969
+
+[log]
+  date = iso
+
+[branch]
+  sort = -committerdate
+
+[alias]
+  br = branch
+  ci = commit
+  co = "!f() { if [ $# -eq 0 ]; then git checkout $(git branch -a | grep -v $(git branch --show-current) | fzf); else git checkout $@; fi }; f"
+  df = diff
+  dft = "!f() { GIT_EXTERNAL_DIFF=difft git diff \"$@\"; }; f"
+  dfp = "!f() { GIT_PAGER=delta git diff \"$@\"; }; f"
+  lg = log --branches --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  log = log --branches --graph --decorate=full --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lgp = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff \"$@\"; }; f"
+  lgd = "!f() { GIT_PAGER=delta git log -p --ext-diff \"$@\"; }; f"
+  serve = daemon --reuseaddr --verbose  --port=4000 --base-path=. --export-all ./.git
+  st = status -sb
+  pr = pull --rebase
+  mb = "!f() { if [ $# -eq 0 ]; then git merge-base main $(git branch -a | fzf); else git merge-base $@; fi }; f"
+
+[core]
+  autocrlf = input
+  # norwegian chars in commits
+  quotepath = false
+  precomposeunicode = true
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+  attributesfile = ~/.gitattributes
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[include]
+  path = ~/.gitconfig.private
+
+[merge]
+  #Gtool = vimdiff
+  tool = ediff
+
+[mergetool.ediff]
+  cmd = emacsclient -nw --eval \"(progn (setq ediff-quit-hook 'kill-emacs) (if (file-readable-p \\\"$BASE\\\") (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\") (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\")))\"
+
+[rerere]
+  enabled = true
+
+[diff]
+  colorMoved = default
+  algorithm = histogram
+
+[diff "org"]
+  xfuncname="^\\*+ +(.*)$"
+
+[diff "elisp"]
+  xfuncname="^\\((((def\\S+)|use-package)\\s+\\S+)"
+
+[transfer]
+fsckobjects = true
+
+[fetch]
+fsckobjects = true
+
+[receive]
+fsckObjects = true

@@ -1,0 +1,73 @@
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --bind 'ctrl-k:kill-line' --bind='ctrl-j:accept'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --bind 'alt-p:preview-half-page-up' --bind 'alt-n:preview-half-page-down'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --bind 'alt-t:change-preview-window(right,50%|right,80%|down,50%|down,80%|hidden)'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:008,fg+:007,fg:007,hl+:009,hl:004,pointer:009,info:002"
+
+# show preview when c-t is used for looking up files
+export FZF_CTRL_T_OPTS="$FZF_CTRL_T_OPTS --height 100% --preview 'bat --color=always {1}'"
+
+# show preview when m-c is used for looking up directories
+export FZF_ALT_C_OPTS="$FZF_ALT_C_OPTS --height 100% --preview 'eza -1 -a --color=always --tree -L 1 --classify --group --group-directories-first {1}'"
+
+# complete npm run
+_fzf_complete_npm() {
+  if [[ "$@" == "npm run"* ]]; then
+    _fzf_complete -m \
+        --header-lines=0 \
+        --preview 'cat package.json | jq -er ".scripts | .$(echo {})"' \
+        -- "$@" < <(
+          cat package.json | jq -er '.scripts | keys? | sort | .[]'
+        )
+  fi
+}
+
+
+# complete env
+_fzf_complete_env() {
+  if [[ "$@" == "env"* ]]; then
+    _fzf_complete -m \
+      --header-lines=0 \
+      --bind 'enter:become(echo \${1})' \
+      --delimiter '=' \
+      -- "$@" < <(env)
+  fi
+}
+
+
+# complete gradle tasks
+_fzf_complete_gw() {
+  if [[ "$@" == "gw"* ]]; then
+    _fzf_complete -m \
+      --header-lines=0 \
+      --bind 'enter:become(echo {1})' \
+      --preview 'echo {2}' \
+      --delimiter "-" \
+      --ansi \
+      -- "$@" < <(
+        gw tasks --all | awk '$1 ~ "^[a-z].*:" { print ":"$1 }'
+      )
+  fi
+}
+
+# complete git co
+# inspiration https://github.com/junegunn/fzf-git.sh/blob/main/fzf-git.sh#L149
+_fzf_complete_git() {
+  if [[ "$@" == "git co"* ]]; then
+    _fzf_complete -m \
+        --header-lines=0 \
+        --height 100% \
+        --preview-window 70%,right \
+        --preview 'git log -p --color=always {}' \
+        --bind "enter:execute(git checkout {})+accept" \
+        --ansi -- "$@" < <(
+      git branch -a --color \
+        | sed -E 's/^[ ]+//' \
+        | grep -vE "^\* " \
+        | grep -v "\->"
+    )
+    # whipe line and refresh p10k vcs prompt
+    zle kill-whole-line
+    _p9k_vcs_status_purge $PWD
+    _p9k_vcs_resume
+  fi
+}

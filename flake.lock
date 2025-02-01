@@ -17,21 +17,23 @@
       "original": {
         "owner": "lnl7",
         "repo": "nix-darwin",
+        "rev": "683d0c4cd1102dcccfa3f835565378c7f3cbe05e",
         "type": "github"
       }
     },
     "dotfiles": {
       "locked": {
-        "lastModified": 1737432246,
-        "narHash": "sha256-kEvSwY2+yGboCMR3Ps0EdID92U/vtEhGdGK+f/NB2U8=",
+        "lastModified": 1738225997,
+        "narHash": "sha256-8ljJeQNBrfhUZq6nbOKDD3d+bsQiy7LkQmNIokQuEsw=",
         "owner": "jiaqiwang969",
         "repo": "dotfiles",
-        "rev": "4f36ff219337ac75a4673963230a4af2273a8674",
+        "rev": "9ac998cd05098775117faba29969f4394b7d4db8",
         "type": "github"
       },
       "original": {
         "owner": "jiaqiwang969",
         "repo": "dotfiles",
+        "rev": "9ac998cd05098775117faba29969f4394b7d4db8",
         "type": "github"
       }
     },
@@ -51,8 +53,8 @@
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-23.11",
         "repo": "home-manager",
+        "rev": "f2e3c19867262dbe84fdfab42467fc8dd83a2005",
         "type": "github"
       }
     },
@@ -73,21 +75,23 @@
       "original": {
         "owner": "cdmistman",
         "repo": "mkAlias",
+        "rev": "ab1afe594a3da8be30814b735cc5ad53d7c326f7",
         "type": "github"
       }
     },
     "nix-home-manager": {
       "locked": {
-        "lastModified": 1737431647,
-        "narHash": "sha256-nsfaLcg8LUuh3Y5LMEia2EC8rLRU8ngO5BhbD2vf1+I=",
+        "lastModified": 1737611516,
+        "narHash": "sha256-aSRyR03QzpN1paW7pCz6kALxhaOmdueht6aqDGCKuEI=",
         "owner": "jiaqiwang969",
         "repo": "nix-home-manager",
-        "rev": "97b9789586716c29046268ad490279c3f619a792",
+        "rev": "5ef4387df7bce91e0b10675afa7656b2575057a2",
         "type": "github"
       },
       "original": {
         "owner": "jiaqiwang969",
         "repo": "nix-home-manager",
+        "rev": "5ef4387df7bce91e0b10675afa7656b2575057a2",
         "type": "github"
       }
     },
@@ -114,8 +118,8 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-23.11-darwin",
         "repo": "nixpkgs",
+        "rev": "7144d6241f02d171d25fba3edeaf15e0f2592105",
         "type": "github"
       }
     },
@@ -134,6 +138,7 @@
       "original": {
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
+        "rev": "8e9965c903e39aa478abe25e6f0a3a89370277a2",
         "type": "github"
       }
     },
@@ -164,8 +169,8 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
         "type": "github"
       }
     },

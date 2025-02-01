@@ -1,0 +1,17 @@
+if ! type __zoxide_z &> /dev/null || ! type __zoxide_zi &> /dev/null
+then
+  eval "$(zoxide init zsh)"
+
+  # use custom cd that lists files
+  unfunction __zoxide_cd
+  function __zoxide_cd {
+    builtin cd "$@" && lt && m
+    chpwd
+  }
+fi
+
+if [ $# -eq 0 ]; then
+  __zoxide_zi
+else
+  __zoxide_z "$@"
+fi

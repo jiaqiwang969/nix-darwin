@@ -1,0 +1,12 @@
+default-timeout=5000
+
+# Try it
+#  notify-send "test"
+#  notify-send 'Hello world!' 'This is an example notification.' --icon=dialog-information
+
+font=JetBrainsMono Nerd Font 13
+icons=1
+icon-path=/etc/profiles/per-user/jqwang/share/icons/Paper-Mono-Dark/
+
+[urgency=high]
+text-color=#CD3F45

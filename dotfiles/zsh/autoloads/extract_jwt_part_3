@@ -1,0 +1,1 @@
+cut -d. -f3 | base64url_decode
