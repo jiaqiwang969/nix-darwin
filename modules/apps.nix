@@ -2,6 +2,7 @@
 
   environment.extraInit = ''
     export PATH=$HOME/bin:/opt/homebrew/bin:/opt/homebrew/anaconda3/bin:$PATH
+    export PATH="$PATH:/Users/jqwang/.lmstudio/bin"
     export USER_EMAIL="jiaqiwang969@gmail.com"                        
     export USER_EMAIL_2="jiaqi_wang@sjtu.com"
     export https_proxy=http://127.0.0.1:7897
@@ -17,6 +18,11 @@
     btop    # 系统监控
     bottom  # 系统监控
     nload   # 网络监控
+    htop      # 系统监控
+    iftop     # 网络监控
+    duf       # 磁盘使用分析
+    fd        # 文件搜索
+    ripgrep   # 文本搜索
   ];
 
   # To make this work, homebrew need to be installed manually, see
@@ -41,7 +47,20 @@
 
     # brew install --cask
     # these need to be updated manually
-    casks = ["swiftbar"  "spotify" "zoom" "intellij-idea" "anaconda"];
+    casks = [
+      # 开发工具
+      "swiftbar"
+      "intellij-idea"
+      
+      # 多媒体
+      "spotify"
+      
+      # 通讯工具
+      "zoom"
+      
+      # 科学计算
+      "anaconda"
+    ];
 
     # mac app store
     # click

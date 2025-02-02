@@ -51,13 +51,14 @@ in {
   # https://github.com/NixOS/nixpkgs/blob/master/pkgs/os-specific/darwin/
   home.packages = with pkgs; [
     coreutils
-
     openconnect
-
     ollama
-
     pkgs.unstable.yabai
     pkgs.unstable.skhd
+    tree      # 目录树显示
+    jq        # JSON 处理
+    fzf       # 模糊搜索
+    bat       # 代码高亮查看
   ];
 
   # TODO hardware.keyboard.zsa.enable
@@ -83,5 +84,12 @@ in {
     ".skhdrc".source = dotfiles + "/skhdrc";
     ".skhdrc".onChange =
       "/etc/profiles/per-user/jqwang/bin/skhd --restart-service";
+  };
+
+  # 建议添加 shell 配置
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
   };
 }

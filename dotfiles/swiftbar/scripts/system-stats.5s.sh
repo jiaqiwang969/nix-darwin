@@ -17,6 +17,25 @@ icon='iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSF
 
 export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
 
+# 建议添加错误处理
+set -euo pipefail
+
+# 建议添加日志函数
+log_error() {
+    echo "[ERROR] $1" >&2
+}
+
+# 建议添加健康检查
+check_dependencies() {
+    local deps=(top vm_stat netstat)
+    for dep in "${deps[@]}"; do
+        if ! command -v "$dep" >/dev/null 2>&1; then
+            log_error "Missing dependency: $dep"
+            exit 1
+        fi
+    done
+}
+
 # 获取系统状态
 get_stats() {
     # CPU
@@ -56,10 +75,28 @@ show_menu() {
     echo "Open Network Utility | bash=/usr/bin/open param0=-a param1=\"Network Utility\" terminal=false"
 }
 
+# 建议优化网络速度计算
+get_network_speed() {
+    local interface="${1:-en0}"
+    local interval="${2:-1}"
+    
+    local rx_bytes tx_bytes rx_bytes_new tx_bytes_new
+    
+    rx_bytes=$(netstat -ib | grep -m1 "$interface" | awk '{print $7}')
+    tx_bytes=$(netstat -ib | grep -m1 "$interface" | awk '{print $10}')
+    sleep "$interval"
+    rx_bytes_new=$(netstat -ib | grep -m1 "$interface" | awk '{print $7}')
+    tx_bytes_new=$(netstat -ib | grep -m1 "$interface" | awk '{print $10}')
+    
+    echo "$((rx_bytes_new - rx_bytes))" "$((tx_bytes_new - tx_bytes))"
+}
+
 # 主程序
 main() {
+    check_dependencies
     get_stats
     show_menu
 }
 
+trap 'log_error "Script failed"' ERR
 main 

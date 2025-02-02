@@ -18,7 +18,7 @@
   inputs = {
     # nixpkgs 23.11 darwin channel
     # 2024-01-31
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/7144d6241f02d171d25fba3edeaf15e0f2592105";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/7144d6241f02d171d25fba3edeaf15e0f2592105"; # 23.11 稳定版
     
     # nix-darwin latest stable
     # 2024-03-01
@@ -60,6 +60,9 @@
     # personal dotfiles
     # 2024-01-30
     dotfiles.url = "path:./dotfiles";
+
+    # 建议添加更多注释说明版本选择原因
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, nix-home-manager
