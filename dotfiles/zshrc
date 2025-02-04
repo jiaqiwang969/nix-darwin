@@ -30,7 +30,7 @@ umask $DEFAULT_UMASK
 # Note, needs to happen before powerlevel10 instant prompt, it redirects too /dev/null
 # so tty says "not a tty" if it happens after.
 # https://github.com/romkatv/powerlevel10k#how-do-i-export-gpg_tty-when-using-instant-prompt
-export GPG_TTY=$TTY
+# export GPG_TTY=$TTY
 
 # load zsh plugins
 for plug in \
@@ -84,60 +84,64 @@ if [[ ! -d "$HOME/powerlevel10k" ]]; then
 fi
 
 # gpg
+# function gpg_sign_something_to_check_cached_key_presens() {
+#   echo "1234" | gpg --local-user B3CF01383ADB3051 -as -
+# }
 
-function gpg_sign_something_to_check_cached_key_presens() {
-  echo "1234" | gpg --local-user B3CF01383ADB3051 -as -
-}
+# function gpg_restart_agent() {
+#   killall gpg-agent && gpg-connect-agent reloadagent /bye
+# }
 
-function gpg_restart_agent() {
-  killall gpg-agent && gpg-connect-agent reloadagent /bye
-}
+# function gpg_test_cache() {
+#   gpg -q --batch -d ~/.authinfo.gpg
+# }
 
-function gpg_test_cache() {
-  gpg -q --batch -d ~/.authinfo.gpg
-}
+# function gpg_cache () {
+#   # Nescessary to make the following passphrase preset to work
+#   # TODO should this instead be?
+#   # gpgconf --launch gpg-agent
+#   gpg-connect-agent updatestartuptty /bye >/dev/null
 
-function gpg_cache () {
-  # Nescessary to make the following passphrase preset to work
-  # TODO should this instead be?
-  # gpgconf --launch gpg-agent
-  gpg-connect-agent updatestartuptty /bye >/dev/null
+#   # Preset it from 1password. Try signing with it first, only preset it if it fails.
+#   # https://stackoverflow.com/questions/11381123/how-to-use-gpg-command-line-to-check-passphrase-is-correct
+#   PRESET_KEY=$(gpg --pinentry-mode error --local-user B3CF01383ADB3051 -aso /dev/null <(echo 1234) 2>/dev/null && echo "yes" || echo "no")
 
-  # Preset it from 1password. Try signing with it first, only preset it if it fails.
-  # https://stackoverflow.com/questions/11381123/how-to-use-gpg-command-line-to-check-passphrase-is-correct
-  PRESET_KEY=$(gpg --pinentry-mode error --local-user B3CF01383ADB3051 -aso /dev/null <(echo 1234) 2>/dev/null && echo "yes" || echo "no")
+#   case $(uname) in
+#     Linux)
+#       eval $(op signin --account my)
+#       ;;
+#     Darwin)
+#       true # fingerprint prompt when op item get
+#       ;;
+#   esac
 
-  case $(uname) in
-    Linux)
-      eval $(op signin --account my)
-      ;;
-    Darwin)
-      true # fingerprint prompt when op item get
-      ;;
-  esac
+#   if [[ "$PRESET_KEY" = "no" ]]; then
+#     gpg_restart_agent
+#     $(gpgconf --list-dirs libexecdir)/gpg-preset-passphrase \
+#       -c \
+#       -P "$(op item get keybase.io --format json | jq -j '.fields[] | select(.id == "password") | .value')" \
+#       $(gpg --fingerprint --with-keygrip jqwang@keybase.io | awk '/Keygrip/ {print $3}' | tail -n 1)
+#   fi
 
-  if [[ "$PRESET_KEY" = "no" ]]; then
-    gpg_restart_agent
-    $(gpgconf --list-dirs libexecdir)/gpg-preset-passphrase \
-      -c \
-      -P "$(op item get keybase.io --format json | jq -j '.fields[] | select(.id == "password") | .value')" \
-      $(gpg --fingerprint --with-keygrip jqwang@keybase.io | awk '/Keygrip/ {print $3}' | tail -n 1)
-  fi
-
-  # I don't get this, but the first time around, after the initial signing (gpg -as) failed in the previous step, I need to actually use the key to make the agent cache it. Decrypt an encrypted file to make it stick.
-  gpg_test_cache > /dev/null
-}
+#   # I don't get this, but the first time around, after the initial signing (gpg -as) failed in the previous step, I need to actually use the key to make the agent cache it. Decrypt an encrypted file to make it stick.
+#   gpg_test_cache > /dev/null
+# }
 
 
 if [[ -z "$INSIDE_EMACS" ]]; then
 case $(uname) in
   Darwin)
       # Without a fingerprint reader on linux this is annoying, keep it macos only
-      gpg_cache
+      # gpg_cache
 
       # Install from Iterm2 -> Install Shell Integration
       test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
       ;;
+  Linux)
+    # if you use multiple terminals simultaneously and want gpg-agent to
+    # ask for passphrase via pinentry-curses from the same terminal
+    # gpg-connect-agent updatestartuptty /bye &>/dev/null
+    ;;
   esac
 fi
 
@@ -228,7 +232,7 @@ case $(uname) in
 
     # if you use multiple terminals simultaneously and want gpg-agent to
     # ask for passphrase via pinentry-curses from the same terminal
-    gpg-connect-agent updatestartuptty /bye &>/dev/null
+    #gpg-connect-agent updatestartuptty /bye &>/dev/null
 
     # arch needs
     #  sudo ln -sf /usr/bin/pinentry-tty /usr/local/bin/pinentry-tty

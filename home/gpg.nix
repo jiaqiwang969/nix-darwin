@@ -4,7 +4,7 @@
     package = pkgs.gnupg24;
   };
 
-  home.packages = with pkgs; [ pinentry ];
+  home.packages = with pkgs; [ pinentry_mac ];
 
   home.file.".gnupg/gpg-agent.conf".text = ''
     # seconds after the last GnuPG activity

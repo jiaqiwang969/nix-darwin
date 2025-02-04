@@ -10,16 +10,16 @@ in {
     ./link-home-manager-installed-apps.nix
     ./docker.nix
     ./gw.nix
-    ./gpg.nix
-    ./fonts.nix
+    #./gpg.nix
+    #./fonts.nix
     (inputs.nix-home-manager + "/modules")
   ];
 
-  programs.t-firefox = {
-    enable = true;
-    package = pkgs.firefox-devedition-bin;
-    extraEngines = (import ./firefox-da.nix { engine= "google"; });
-  };
+  #programs.t-firefox = {
+  #  enable = true;
+  #  package = pkgs.firefox-devedition-bin;
+  #  extraEngines = (import ./firefox-da.nix { engine= "google"; });
+  #};
   programs.t-doomemacs.enable = true;
   programs.t-nvim.enable = true;
   programs.t-terminal.alacritty = {
@@ -52,13 +52,14 @@ in {
   home.packages = with pkgs; [
     coreutils
     openconnect
-    ollama
+    #ollama
     pkgs.unstable.yabai
     pkgs.unstable.skhd
     tree      # 目录树显示
     jq        # JSON 处理
     fzf       # 模糊搜索
     bat       # 代码高亮查看
+    #open-webui
   ];
 
   # TODO hardware.keyboard.zsa.enable
