@@ -2,13 +2,13 @@
   defaultBranch = main
 
 [commit]
-  gpgsign = true
+  # gpgsign = true
   cleanup = scissors
 
 [user]
   name = jiaqiwang969
   email = jiaqiwang969@gmail.com
-  signingkey = B3CF01383ADB3051
+  # signingkey = B3CF01383ADB3051
 
 [github]
   user = jiaqiwang969

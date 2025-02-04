@@ -24,7 +24,7 @@
     "dotfiles": {
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-n8eZMf3GoRFrTMm8AnzbI46kGbJtmIUG6TXCWKZh+30=",
+        "narHash": "sha256-/VIdtuaqi5SjFjNCiHNlHGsLQtP/iH3UpAkdlHoBNPc=",
         "path": "./dotfiles",
         "type": "path"
       },
@@ -137,11 +137,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1738544198,
-        "narHash": "sha256-bdGeUx6SBs37wQ6gHo5m+apn5Uze2fVz/oYfkD6DKUA=",
+        "lastModified": 1738630538,
+        "narHash": "sha256-xFPk9/4mJaC4yeJ0bqs0MRjMWrJHoRk/N/cWc980VLc=",
         "owner": "bandithedoge",
         "repo": "nixpkgs-firefox-darwin",
-        "rev": "6a14fbdbc697c7f1c93376ecbed4b095ccc55f00",
+        "rev": "d77c620fe1938911e3bcc56f5a6f021b2949b8c9",
         "type": "github"
       },
       "original": {
